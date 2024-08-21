@@ -9,7 +9,7 @@ import SwiftUI
 import SwiftData
 
 @main
-struct BookRatingApp: App {
+struct BookRating: App {
     var body: some Scene {
         WindowGroup {
             BookListView()
@@ -17,5 +17,6 @@ struct BookRatingApp: App {
         .modelContainer(for: Book.self)
     }
     init() {
-        print(URL.applicationDirectory.path(percentEncoded: false))}
+        print(URL.applicationSupportDirectory.path(percentEncoded: false))
+    }
 }
