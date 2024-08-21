@@ -40,7 +40,7 @@ class Book {
         switch status {
         case .onShelf:
             Image(systemName: "checkmark.diamond.fill")
-        case .CurrentlyReading:
+        case .currentlyReading:
             Image(systemName: "book.fill")
         case .finished:
             Image(systemName: "book.vertical.fill")
@@ -49,7 +49,7 @@ class Book {
 }
 
 enum Status: Int, Codable, CaseIterable, Identifiable {
-    case onShelf, CurrentlyReading, finished
+    case onShelf, currentlyReading, finished
     var id: Self {
         self
     }
@@ -57,7 +57,7 @@ enum Status: Int, Codable, CaseIterable, Identifiable {
         switch self {
         case .onShelf:
             "On Shelf"
-        case .CurrentlyReading:
+        case .currentlyReading:
             "Currently Reading"
         case .finished:
             "Finished"
