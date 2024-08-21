@@ -22,6 +22,16 @@ struct BookListView: View {
                                     VStack(alignment: .leading) {
                                         Text(book.title).font(.title2)
                                         Text(book.author).foregroundStyle(.secondary)
+                                        if let rating = book.rating {
+                                            HStack {
+                                                ForEach(1..<rating, id: \.self) {
+                                                    _ in
+                                                Image(systemName: "star.fill")
+                                                        .imageScale(.small)
+                                                        .foregroundStyle(.yellow)
+                                                }
+                                            }
+                                        }
                                     }
                                 }
                             }

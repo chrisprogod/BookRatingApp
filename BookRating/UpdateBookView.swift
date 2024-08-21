@@ -17,6 +17,7 @@ struct UpdateBookView: View {
     @State  var dateStarted = Date.distantPast
     @State  var dateFinished = Date.distantPast
     @State  var firstView = true
+    @State  var rating: Int?
     
     var body: some View {
         HStack {
@@ -52,6 +53,11 @@ struct UpdateBookView: View {
             }
             .foregroundStyle(.secondary)
             Divider()
+            LabeledContent {
+                RatingsView(maxRating: 5, currentRating: $rating, width: 30)
+            } label: {
+                Text("Rating")
+            }
             LabeledContent {
                 TextField("", text: $title)
             } label: {
@@ -95,6 +101,7 @@ struct UpdateBookView: View {
             dateAdded = book.dateAdded
             dateStarted = book.dateStarted
             dateFinished = book.dateFinished
+            rating = book.rating
         }
     }
     
@@ -106,6 +113,7 @@ struct UpdateBookView: View {
         || dateAdded != book.dateAdded
         || dateStarted != book.dateStarted
         || dateFinished != book.dateFinished
+        || rating != book.rating
     }
 }
 

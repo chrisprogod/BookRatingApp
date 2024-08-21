@@ -17,6 +17,7 @@ class Book {
     var dateFinished: Date
     var summary: String
     var status: Status
+    var rating: Int?
     
     init(
         author: String,
@@ -25,7 +26,8 @@ class Book {
         dateStarted: Date = Date.distantPast,
         dateFinished: Date = Date.distantPast,
         summary: String = "",
-        status: Status = .onShelf
+        status: Status = .onShelf,
+        rating: Int? = nil
     ) {
         self.author = author
         self.title = title
@@ -34,6 +36,7 @@ class Book {
         self.dateFinished = dateFinished
         self.summary = summary
         self.status = status
+        self.rating = rating
     }
     
     var icon: Image {
