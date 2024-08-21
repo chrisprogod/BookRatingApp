@@ -2,6 +2,7 @@ import SwiftUI
 import SwiftData
 
 struct BookListView: View {
+    @Environment(\.modelContext) private var context
     @Query(sort: \Book.title) private var books: [Book]
     @State private var createBook = false
     
@@ -25,6 +26,11 @@ struct BookListView: View {
                                 }
                             }
                         }
+                        .onDelete(perform: { indexSet in
+                            indexSet.forEach{index in let book = books[index]
+                                context.delete(book)
+                            }
+                        })
                     }
                     .listStyle(.plain)
                 }
