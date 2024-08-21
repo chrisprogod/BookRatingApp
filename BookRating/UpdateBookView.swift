@@ -9,14 +9,14 @@ import SwiftUI
 struct UpdateBookView: View {
     @Environment(\.dismiss) private var dismiss
     let book: Book
-    @State private var status = Status.onShelf
-    @State private var title = ""
-    @State private var author = ""
-    @State private var summary = ""
-    @State private var dateAdded = Date.distantPast
-    @State private var dateStarted = Date.distantPast
-    @State private var dateFinished = Date.distantPast
-    @State private var firstView = true
+    @State  var status = Status.onShelf
+    @State  var title = ""
+    @State  var author = ""
+    @State  var summary = ""
+    @State  var dateAdded = Date.distantPast
+    @State  var dateStarted = Date.distantPast
+    @State  var dateFinished = Date.distantPast
+    @State  var firstView = true
     
     var body: some View {
         HStack {
@@ -35,7 +35,7 @@ struct UpdateBookView: View {
                 } label: {
                     Text("Date Added")
                 }
-                if status == .CurrentlyReading || status == .finished {
+                if status == .currentlyReading || status == .finished {
                     LabeledContent {
                         DatePicker("", selection: $dateStarted, in: dateAdded..., displayedComponents: .date)
                     } label: {
@@ -51,28 +51,6 @@ struct UpdateBookView: View {
                 }
             }
             .foregroundStyle(.secondary)
-            .onChange(of: status) { oldValue, newValue in
-                if !firstView {
-                    if newValue == .onShelf {
-                        dateStarted = Date.distantPast
-                        dateFinished = Date.distantPast
-                    } else if newValue == .CurrentlyReading && oldValue == .finished {
-                        // from completed to inProgress
-                        dateFinished = Date.distantPast
-                    } else if newValue == .inProgress && oldValue == .onShelf {
-                        // Book has been started
-                        dateStarted = Date.now
-                    } else if newValue == .completed && oldValue == .onShelf {
-                        // Forgot to start book
-                        dateFinished = Date.now
-                        dateStarted = dateAdded
-                    } else {
-                        // completed
-                        dateFinished = Date.now
-                    }
-                    firstView = false
-                }
-            }
             Divider()
             LabeledContent {
                 TextField("", text: $title)
