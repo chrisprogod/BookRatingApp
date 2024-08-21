@@ -14,6 +14,7 @@
 		2D126F172C73B1190044A619 /* Book.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D126F162C73B1190044A619 /* Book.swift */; };
 		2D126F1F2C750BF90044A619 /* AddNewBook.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D126F1E2C750BF90044A619 /* AddNewBook.swift */; };
 		2D7DEE462C762E7100C17BA8 /* UpdateBookView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D7DEE452C762E7100C17BA8 /* UpdateBookView.swift */; };
+		2D7DEE482C7693A100C17BA8 /* Rating.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D7DEE472C7693A100C17BA8 /* Rating.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -25,6 +26,7 @@
 		2D126F162C73B1190044A619 /* Book.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Book.swift; sourceTree = "<group>"; };
 		2D126F1E2C750BF90044A619 /* AddNewBook.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNewBook.swift; sourceTree = "<group>"; };
 		2D7DEE452C762E7100C17BA8 /* UpdateBookView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateBookView.swift; sourceTree = "<group>"; };
+		2D7DEE472C7693A100C17BA8 /* Rating.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Rating.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -59,6 +61,7 @@
 			children = (
 				2D126F082C73B0760044A619 /* AppInit.swift */,
 				2D126F1E2C750BF90044A619 /* AddNewBook.swift */,
+				2D7DEE472C7693A100C17BA8 /* Rating.swift */,
 				2D7DEE452C762E7100C17BA8 /* UpdateBookView.swift */,
 				2D126F0A2C73B0760044A619 /* ContentView.swift */,
 				2D126F162C73B1190044A619 /* Book.swift */,
@@ -146,6 +149,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2D7DEE482C7693A100C17BA8 /* Rating.swift in Sources */,
 				2D126F0B2C73B0760044A619 /* ContentView.swift in Sources */,
 				2D126F1F2C750BF90044A619 /* AddNewBook.swift in Sources */,
 				2D7DEE462C762E7100C17BA8 /* UpdateBookView.swift in Sources */,
