@@ -15,7 +15,7 @@ struct BookListView: View {
                     List {
                         ForEach(books) { book in
                             NavigationLink {
-                                // Navigation destination content here
+                                UpdateBookView(book:book)
                             } label: {
                                 HStack(spacing: 10) {
                                     book.icon
@@ -26,11 +26,11 @@ struct BookListView: View {
                                 }
                             }
                         }
-                        .onDelete(perform: { indexSet in
-                            indexSet.forEach{index in let book = books[index]
+                        .onDelete { indexSet in
+                            indexSet.forEach { index in let book = books[index]
                                 context.delete(book)
                             }
-                        })
+                        }
                     }
                     .listStyle(.plain)
                 }
