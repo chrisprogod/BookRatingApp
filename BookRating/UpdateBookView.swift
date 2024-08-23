@@ -5,19 +5,22 @@
 //  Created by Christian Teguim on 2024-08-21.
 //
 import SwiftUI
+import Translation
+import Foundation
 
 struct UpdateBookView: View {
     @Environment(\.dismiss) private var dismiss
     let book: Book
-    @State  var status = Status.onShelf
-    @State  var title = ""
-    @State  var author = ""
-    @State  var summary = ""
-    @State  var dateAdded = Date.distantPast
-    @State  var dateStarted = Date.distantPast
-    @State  var dateFinished = Date.distantPast
-    @State  var firstView = true
-    @State  var rating: Int?
+    @State var status = Status.onShelf
+    @State var title = ""
+    @State var author = ""
+    @State var summary = ""
+    @State var dateAdded = Date.distantPast
+    @State var dateStarted = Date.distantPast
+    @State var dateFinished = Date.distantPast
+    @State var firstView = true
+    @State var rating: Int?
+    @State var showTranslation: Bool = false
     
     var body: some View {
         HStack {
@@ -69,7 +72,14 @@ struct UpdateBookView: View {
                 Text("Author").foregroundStyle(.secondary)
             }
             Divider()
-            Text("Summary").foregroundStyle(.secondary)
+            HStack {
+                Text("Summary").foregroundStyle(.secondary)
+                Spacer(minLength: 20)
+                Button("Translate Text") {
+                    showTranslation = true
+                }
+                .translationPresentation(isPresented: $showTranslation, text: summary)
+            }
             TextEditor(text: $summary)
                 .padding(5)
                 .overlay(RoundedRectangle(cornerRadius: 20).stroke(Color(uiColor: .tertiarySystemFill), lineWidth: 2))
@@ -119,6 +129,6 @@ struct UpdateBookView: View {
 
 //#Preview {
 //    NavigationStack {
-//        EditBookView()
+//        UpdateBookView(book: Book)
 //    }
 //}
